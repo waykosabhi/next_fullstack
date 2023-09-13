@@ -4,7 +4,7 @@ import { NextApiRequest } from "next";
 import { NextRequest, NextResponse } from "next/server";
 
 export const DELETE = async (
-  req: NextApiRequest,
+  req: NextRequest,
   { params }: { params: { id: string } }
 ) => {
   try {
