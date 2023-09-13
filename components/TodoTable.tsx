@@ -1,5 +1,4 @@
 "use client";
-import { DELETE } from "@/app/api/todo/[id]/route";
 import { useEffect, useState } from "react";
 
 type TODO = {
@@ -25,21 +24,10 @@ const TodoTable = () => {
     console.log(result);
     setAllTodos(result);
   };
-  const deleteTodos = async () => {
-    const res = await fetch(`/api/todo/${}`, {
-      method: "DELETE",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-    const { result } = await res.json();
-    console.log(result);
-    setAllTodos(result);
-  };
+  //
 
   useEffect(() => {
     getTodos();
-    deleteTodos();
   }, []);
 
   return (
@@ -47,7 +35,7 @@ const TodoTable = () => {
       {allTodos.map((item) => (
         <div className="flex gap-5">
           <h1>{item.task}</h1>
-          <button onClick={deleteTodos}>DELETE</button>
+          <button>DELETE</button>
         </div>
       ))}
     </>
